@@ -1,0 +1,16 @@
+# Alternativa ao Dockerfile puro (Dokploy/Coolify em modo Compose). O domínio/HTTPS é configurado no painel.
+services:
+  financas:
+    build: .
+    restart: unless-stopped
+    environment:
+      INIT_EMAIL: ${INIT_EMAIL:-}
+      INIT_PASSWORD: ${INIT_PASSWORD:-}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN:-}
+    volumes:
+      - financas-data:/data
+    expose:
+      - "3000"
+
+volumes:
+  financas-data:

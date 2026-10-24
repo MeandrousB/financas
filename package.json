@@ -1,0 +1,18 @@
+{
+  "name": "minhas-financas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "dev": "COOKIE_SECURE=false node --disable-warning=ExperimentalWarning --watch server/index.js",
+    "cli": "node --disable-warning=ExperimentalWarning server/cli.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.4",
+    "hono": "4.13.13"
+  }
+}

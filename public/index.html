@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e7ebe5">
+<meta name="description" content="Finanças pessoais (PF) e das empresas (PJ Imobiliária e PJ Jurídico): lançamentos, compromissos, projeções, saúde financeira, metas e recomendações.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Finanças">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Minhas finanças</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="topbar"><button id="menu-btn" class="icon-btn" aria-label="Abrir menu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button><span class="brand-s">Minhas finanças</span><span class="sp"></span><button type="button" class="sync-pill compact" data-sync-status hidden></button></div>
+<aside class="side" id="side" aria-label="Navegação">
+  <div class="brand"><p id="brand-name">Minhas finanças</p><p class="brand-sub" id="brand-sub">PF, Imobiliária e Jurídico</p></div>
+  <nav id="nav"></nav>
+  <div class="side-foot">
+    <button type="button" class="sync-pill" data-sync-status hidden></button>
+    <p class="sync-user"><span id="sync-email"></span><button type="button" class="btn ghost sm" id="sync-logout" hidden>Sair</button></p>
+  </div>
+</aside>
+<div class="nav-back" id="nav-back"></div>
+<main id="main" tabindex="-1"></main>
+<button id="fab" class="fab" aria-label="Novo lançamento"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Lançar</button>
+<div id="modal-root"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="gate" class="gate" data-view="carregando">
+  <div class="gate-card" role="region" aria-labelledby="gate-t">
+    <div class="gate-brand"><img src="/icons/icon.svg" alt="" width="36" height="36"><div><p id="gate-t">Minhas finanças</p><p class="gate-sub">PF, Imobiliária e Jurídico</p></div></div>
+
+    <p class="gate-carregando" data-v="carregando">Abrindo…</p>
+
+    <form id="gate-login" data-v="login" novalidate>
+      <p class="gate-msg" id="gate-login-msg" hidden></p>
+      <label class="fld"><span class="fl">E-mail</span><input class="in" name="email" type="email" autocomplete="username" inputmode="email" autocapitalize="off" spellcheck="false" required></label>
+      <label class="fld"><span class="fl">Senha</span><input class="in" name="senha" type="password" autocomplete="current-password" required></label>
+      <p class="gate-err" id="gate-err" role="alert" hidden></p>
+      <button class="btn primary gate-go" type="submit">Entrar</button>
+    </form>
+
+    <div data-v="offline">
+      <p class="gate-h">Sem conexão</p>
+      <p class="gate-p">Este aparelho ainda não tem uma cópia dos dados. Conecte-se para entrar pela primeira vez; depois o app abre mesmo offline.</p>
+      <button class="btn primary gate-go" type="button" id="gate-retry">Tentar de novo</button>
+    </div>
+
+    <div data-v="inicio">
+      <p class="gate-h">O servidor ainda não tem dados</p>
+      <p class="gate-p">Escolha como começar. Dá para restaurar um backup depois, em Cadastros.</p>
+      <div class="gate-opts">
+        <label class="gate-opt"><input type="file" id="gate-import" accept="application/json,.json" hidden><b>Importar backup</b><span>Arquivo .json gerado em Cadastros → Baixar backup, no arquivo antigo.</span></label>
+        <button type="button" class="gate-opt" id="gate-local" hidden><b>Enviar os dados deste navegador</b><span id="gate-local-info">Há dados salvos aqui.</span></button>
+        <button type="button" class="gate-opt" id="gate-zero"><b>Começar do zero</b><span>Categorias padrão, sem lançamentos.</span></button>
+        <button type="button" class="gate-opt" id="gate-demo"><b>Ver com dados de exemplo</b><span>Para explorar. Os exemplos saem com um clique.</span></button>
+      </div>
+      <p class="gate-err" id="gate-inicio-err" role="alert" hidden></p>
+    </div>
+  </div>
+</div>
+<div id="update-bar" class="update-bar" role="status" hidden><span>Nova versão do app disponível.</span><button type="button" class="btn sm primary" id="update-go">Atualizar</button></div>
+<noscript><p style="padding:24px">Esta planilha precisa de JavaScript ativado.</p></noscript>
+<script src="/vendor/chart.umd.js"></script>
+<script src="/engine.js"></script>
+<script src="/app.js"></script>
+<script src="/sync.js"></script>
+</body>
+</html>
